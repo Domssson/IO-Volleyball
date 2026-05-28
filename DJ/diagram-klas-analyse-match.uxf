@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>9</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>639</y>
+      <w>270</w>
+      <h>342</h>
+    </coordinates>
+    <panel_attributes>MatchAnalysis
+--
+- team1: TeamInMatch
+- team2: TeamInMatch
+- currentSet: int
+- currentRally: int
+- rallies: IList&lt;MatchRally&gt;
+
+- matchStatistics: StatisticsSet
+
+- positioning: PositioningOnThePitch
+--
++ AddAction(action: MatchAction)
++ UndoLastAction() : MatchAction
++ GetRallyActions(num) : IList&lt;MatchAction&gt;
++ CurrentRally(): int
++ Score(teamNum: int, points: int)
+
++ UpdatePositioning(positioning): void
+
++ GetTeam1(): TeamInMatch
++ GetTeam2(): TeamInMatch
++ GetMatchStatistics(): StatisticsSet
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1161</x>
+      <y>243</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;abstract&gt;&gt;
+/Statistic/
+--
+- type: StatisticType
+- scope: StatisticScope
+--
++ Statistic(type, scope)
+
++ GetType(): StatisticType
++ GetScope(): StatisticScope
+/+ GetValueAsString(): string/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>423</x>
+      <y>153</y>
+      <w>306</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>MatchAction
+--
+- type: MatchActionType
+- result: MatchActionResult
+- player: PlayerInMatch
+- actionPositioning: PositioningOnThePitch
+- time: Time
+- consequences: IList&lt;ActionConsequence&gt;
+--
++ MatchAction(type, result. player, positioning,
+time)
++ AddConsequence(consequence)
++ RemoveConsequence(consequence)
+
++ UpdateStatistics()
++ UndoUpdate()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>45</x>
+      <y>18</y>
+      <w>189</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+MatchActionType
+--
+Attack
+Block
+Dig
+Receptio
+Set
+Serve</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1278</x>
+      <y>45</y>
+      <w>189</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+StatisticScope
+--
+Match
+TeamDuringMatch
+PlayerDuringMatch
+TeamGlobal
+PlayerGlobal</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1062</x>
+      <y>504</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>IntStatistic
+--
+- value: int
+--
++ IntStatistic(type, scope,
+startValue)
+
++ ChangeValue(toAdd: int)
++ SetValue(value: int)
++ GetValue(): int
++ GetValueAsString(): string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1269</x>
+      <y>504</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>PercentageStatistic
+--
+- value: decimal
+--
++ PercentageStatistic(type,
+scope, startValue)
+
++ SetValue(value: decimal)
++ GetValue(): decimal
++ GetValueAsString(): string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1152</x>
+      <y>405</y>
+      <w>63</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1287</x>
+      <y>405</y>
+      <w>90</w>
+      <h>117</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1053</x>
+      <y>45</y>
+      <w>180</w>
+      <h>153</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+StatisticType
+--
+NumAttacks
+NumBlocks
+NumDigs
+NumAces
+NumErrors
+AttackSuccessRate
+ReceptionRate</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>18</y>
+      <w>189</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+MatchActionResult
+--
+Good
+Ace
+Error</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>774</x>
+      <y>549</y>
+      <w>207</w>
+      <h>189</h>
+    </coordinates>
+    <panel_attributes>PlayerInMatch
+--
+- id: int
+- name: string
+- number: int
+- playerStats: StatisticsSet
+--
++ PlayerInMatch(id, name, num)
+
++ GetId()
++ GetName()
++ GetJerseyNumber()
++ GetPlayerStatistics()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>774</x>
+      <y>810</y>
+      <w>207</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>TeamInMatch
+--
+- teamId: int
+- name: string
+- players: IList&lt;PlayerInMatch&gt;
+- teamStats: StatisticsSet
+--
++ TeamInMatch(teamId, players)
+
++ GetId()
++ GetPlayers()
++ GetTeamStatistics()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>468</x>
+      <y>414</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>MatchRally
+--
+- rallyNumber: int
+- actions: IList&lt;MatchAction&gt;
+--
++ MatchRally(number: int)
+
++ GetNumber(): int
++ GetRallyActions()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>783</x>
+      <y>270</y>
+      <w>243</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;struct&gt;&gt;
+PositioningOnThePitch
+--
++ team1Players: PlayerInMatch[6]
++ team1PlayerCoords: PitchCoords[6]
+
++ team2Players: PlayerInMatch[6]
++ team2PlayerCoords: PitchCoords[6]
+
++ ballCoords: PitchCoords</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>828</x>
+      <y>81</y>
+      <w>162</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;struct&gt;&gt;
+PitchCoords
+--
++ x: decimal
++ y: decimal</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1116</x>
+      <y>774</y>
+      <w>252</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>StatisticsSet
+--
+- integerStatistics: IList&lt;IntStatistic&gt;
+- rateStatistics: IList&lt;PercentageStatistic&gt;
+--
++ StatisticsSet(scope: StatisticScope)
+
++ AddAttackValue(value: int)
++ AddSuccessfulAttackValue(value: int)
++ AddBlockValue(value: int)
++ AddDigValue(value: int)
++ AddAceValue(value: int)
++ AddReceptionValue(value: int)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>126</x>
+      <y>180</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IActionConsequence
+--
++ Perform()
++ Undo()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>9</x>
+      <y>414</y>
+      <w>189</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>StatisticConsequence
+--
+- type: MatchActionType
+- result: MatchActionResult
+- match: MatchAnalysis
+--
++ Perform()
++ Undo()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>225</x>
+      <y>414</y>
+      <w>189</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>ScoreConsequence
+--
+- teamId: int
+- pointsToAdd: int
+- match: MatchAnalysis
+--
++ Perform()
++ Undo()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>90</x>
+      <y>342</y>
+      <w>99</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>90.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>252</x>
+      <y>342</y>
+      <w>90</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>9</x>
+      <y>702</y>
+      <w>189</w>
+      <h>171</h>
+    </coordinates>
+    <panel_attributes>MatchStatisticsModule
+--
+- isTrackingActive: boolean
+- analysis: MatchAnalysis
+--
++ StartDataRegistration()
++ RecordVolleyballEvent()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>9</x>
+      <y>900</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>StatisticsCorrectionView
+--
+- analysis: MatchAnalysis</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>486</x>
+      <y>576</y>
+      <w>189</w>
+      <h>81</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=*
+Występują w trakcie meczu</panel_attributes>
+    <additional_attributes>10.0;70.0;20.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>684</x>
+      <y>828</y>
+      <w>108</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=2
+Grają</panel_attributes>
+    <additional_attributes>10.0;30.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>783</x>
+      <y>729</y>
+      <w>171</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=*
+Są zawodnikami drużyny</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>855</x>
+      <y>432</y>
+      <w>189</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Określa pozycję na boisku w
+danym czasie
+m1=12
+m2=*</panel_attributes>
+    <additional_attributes>10.0;130.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>891</x>
+      <y>153</y>
+      <w>27</w>
+      <h>135</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>306</x>
+      <y>207</y>
+      <w>135</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=*
+Ponosi za sobą</panel_attributes>
+    <additional_attributes>130.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1125</x>
+      <y>666</y>
+      <w>144</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+Zawiera statystykę
+m2=5</panel_attributes>
+    <additional_attributes>30.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1278</x>
+      <y>666</y>
+      <w>153</w>
+      <h>126</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+Zawiera statystykę
+m2=2</panel_attributes>
+    <additional_attributes>10.0;120.0;50.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>459</x>
+      <y>369</y>
+      <w>180</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=*
+                      Składa się z akcji</panel_attributes>
+    <additional_attributes>160.0;50.0;30.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>675</x>
+      <y>432</y>
+      <w>153</w>
+      <h>225</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>189</y>
+      <w>126</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>120.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>315</x>
+      <y>531</y>
+      <w>180</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Aktualizuje  wynik</panel_attributes>
+    <additional_attributes>120.0;140.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>108</x>
+      <y>531</y>
+      <w>333</w>
+      <h>216</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+Aktualizuje wybrane statystyki</panel_attributes>
+    <additional_attributes>350.0;220.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>972</x>
+      <y>927</y>
+      <w>162</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>160.0;10.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>972</x>
+      <y>711</y>
+      <w>162</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>160.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>684</x>
+      <y>945</y>
+      <w>468</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>500.0;10.0;420.0;50.0;60.0;50.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>765</y>
+      <w>252</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+Rejestruje nowe akcje
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>189</x>
+      <y>927</y>
+      <w>252</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m2=0..*
+m1=1
+Nadpisuje akcje i statystyki</panel_attributes>
+    <additional_attributes>260.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+</diagram>
