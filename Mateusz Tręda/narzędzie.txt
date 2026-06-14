@@ -1,0 +1,5 @@
+UMlet w wersji 15.1
+
+UMLet is a free, open-source UML tool with a simple user interface: draw UML diagrams fast, create sequence and activity diagrams from plain text, share via exports to eps, pdf, jpg, svg, and clipboard, and develop new, custom UML elements.
+
+Find below the full-featured UMLet as stand-alone app for Windows, macOS, and Linux, or as Eclipse plugin. It is also available as web app called UMLetino, and as extension to Visual Studio Code.
