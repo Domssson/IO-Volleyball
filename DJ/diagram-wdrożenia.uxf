@@ -81,7 +81,7 @@ style=wordwrap</panel_attributes>
     <panel_attributes>CPU: Intel Xeon 6
 RAM: 32 GB
 16 TB HDD RAID
-Oracle Linux
+Ubuntu Server
 style=wordwrap</panel_attributes>
     <additional_attributes/>
   </element>
@@ -121,7 +121,7 @@ OpenCV</panel_attributes>
     </coordinates>
     <panel_attributes>symbol=component
 &lt;&lt;exe&gt;&gt;
-OracleDB</panel_attributes>
+PostgreSQL</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

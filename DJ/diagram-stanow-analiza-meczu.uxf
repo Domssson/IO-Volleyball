@@ -84,17 +84,6 @@ Mecz zakończony</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>710</x>
-      <y>630</y>
-      <w>30</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
-  </element>
-  <element>
     <id>UMLState</id>
     <coordinates>
       <x>630</x>
@@ -156,17 +145,6 @@ valign=top
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLSpecialState</id>
-    <coordinates>
-      <x>340</x>
-      <y>590</y>
-      <w>20</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>type=final</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>UMLState</id>
     <coordinates>
       <x>370</x>
@@ -218,38 +196,16 @@ o wpływie na statystyki</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
-    <id>UMLSpecialState</id>
-    <coordinates>
-      <x>450</x>
-      <y>370</y>
-      <w>20</w>
-      <h>20</h>
-    </coordinates>
-    <panel_attributes>type=initial</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
     <id>Relation</id>
     <coordinates>
-      <x>710</x>
-      <y>280</y>
-      <w>150</w>
-      <h>80</h>
+      <x>410</x>
+      <y>250</y>
+      <w>240</w>
+      <h>190</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 rozpoczęcieMeczu</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>450</x>
-      <y>380</y>
-      <w>30</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>lt=-&gt;</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+    <additional_attributes>220.0;20.0;60.0;20.0;60.0;170.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -316,11 +272,11 @@ m1=kontynuujAnalizę</panel_attributes>
     <coordinates>
       <x>340</x>
       <y>430</y>
-      <w>110</w>
-      <h>180</h>
+      <w>310</w>
+      <h>320</h>
     </coordinates>
     <panel_attributes>lt=-&gt;
 koniecMeczu</panel_attributes>
-    <additional_attributes>30.0;10.0;10.0;10.0;10.0;160.0</additional_attributes>
+    <additional_attributes>30.0;10.0;10.0;10.0;10.0;300.0;290.0;300.0</additional_attributes>
   </element>
 </diagram>
